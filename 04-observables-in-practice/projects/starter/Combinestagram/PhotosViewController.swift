@@ -32,10 +32,14 @@
 
 import UIKit
 import Photos
+import RxSwift
 
 class PhotosViewController: UICollectionViewController {
 
   // MARK: public properties
+  var selectedPhotos: Observable<UIImage> {
+    selectedPhotosSubject.asObservable()
+  }
 
   // MARK: private properties
   private lazy var photos = PhotosViewController.loadPhotos()
@@ -47,6 +51,9 @@ class PhotosViewController: UICollectionViewController {
                   height: cellSize.height * UIScreen.main.scale)
   }()
 
+  private let selectedPhotosSubject = PublishSubject<UIImage>()
+  
+  
   static func loadPhotos() -> PHFetchResult<PHAsset> {
     let allPhotosOptions = PHFetchOptions()
     allPhotosOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: true)]
@@ -61,7 +68,7 @@ class PhotosViewController: UICollectionViewController {
 
   override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
-
+    selectedPhotosSubject.onCompleted()
   }
 
   // MARK: UICollectionView
@@ -94,7 +101,9 @@ class PhotosViewController: UICollectionViewController {
 
     imageManager.requestImage(for: asset, targetSize: view.frame.size, contentMode: .aspectFill, options: nil, resultHandler: { [weak self] image, info in
       guard let image = image, let info = info else { return }
-      
+      if let isThumbnail = info[PHImageResultIsDegradedKey as NSString] as? Bool, !isThumbnail {
+        self?.selectedPhotosSubject.onNext(image)
+      }
     })
   }
 }

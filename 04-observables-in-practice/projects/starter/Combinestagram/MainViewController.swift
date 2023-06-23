@@ -40,27 +40,65 @@ class MainViewController: UIViewController {
   @IBOutlet weak var buttonClear: UIButton!
   @IBOutlet weak var buttonSave: UIButton!
   @IBOutlet weak var itemAdd: UIBarButtonItem!
-
+  
+  private var bag = DisposeBag()
+  private let images = BehaviorRelay<[UIImage]>(value: [])
+  
   override func viewDidLoad() {
     super.viewDidLoad()
-
+    
+    images
+      .subscribe(onNext: { [weak self] photos in
+        guard let self, let preview = imagePreview else { return }
+        preview.image = photos.collage(size: preview.frame.size)
+        updateUI(photos: photos)
+      })
+      .disposed(by: bag)
   }
   
   @IBAction func actionClear() {
-
+    images.accept([])
   }
 
   @IBAction func actionSave() {
+    guard let image = imagePreview.image else { return }
+    PhotoWriter.singleSave(image)
+      .subscribe { [weak self] id in
+        self?.showMessage("Saved with id: \(id)")
+      } onFailure: { [weak self] error in
+        self?.showMessage("Error", description: error.localizedDescription)
+      }
+      .disposed(by: bag)
 
   }
 
   @IBAction func actionAdd() {
-
+    
+    let photosVC = storyboard!.instantiateViewController(withIdentifier: "PhotosViewController") as! PhotosViewController
+    
+    photosVC.selectedPhotos
+      .subscribe(onNext: { [weak self] newImage in
+        guard let self else { return }
+        let newImages = images.value + [newImage]
+        images.accept(newImages)
+      }, onDisposed: {
+        print("Completed photo selection")
+      })
+      .disposed(by: bag)
+    navigationController?.pushViewController(photosVC, animated: true)
   }
 
   func showMessage(_ title: String, description: String? = nil) {
-    let alert = UIAlertController(title: title, message: description, preferredStyle: .alert)
-    alert.addAction(UIAlertAction(title: "Close", style: .default, handler: { [weak self] _ in self?.dismiss(animated: true, completion: nil)}))
-    present(alert, animated: true, completion: nil)
+    showAlert(title, description: description)
+      .subscribe()
+      .disposed(by: bag)
+  }
+  
+  private func updateUI(photos: [UIImage]) {
+    buttonSave.isEnabled = !photos.isEmpty && photos.count.isMultiple(of: 2)
+    buttonClear.isEnabled = !photos.isEmpty
+    itemAdd.isEnabled = photos.count < 6
+    title = photos.isEmpty ? "Collage" : "\(photos.count) photos"
+    
   }
 }
