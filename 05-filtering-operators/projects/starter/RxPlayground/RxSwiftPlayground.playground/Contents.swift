@@ -34,3 +34,125 @@ import RxSwift
 /// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
+//example(of: "ignoreElements") {
+//    let strikes = PublishSubject<String>()
+//    let disposeBag = DisposeBag()
+//
+//    strikes
+//        .ignoreElements()
+//        .subscribe { _ in
+//            print("Out")
+//        }
+//        .disposed(by: disposeBag)
+//
+//
+//    strikes.onNext("X")
+//    strikes.onNext("X")
+//    strikes.onNext("X")
+//    strikes.onNext("X")
+//    strikes.onCompleted()
+//}
+//example(of: "elementAt") {
+//    // 1
+//    let strikes = PublishSubject<String>()
+//    let disposeBag = DisposeBag()
+//    // 2
+//    strikes
+//        .elementAt(3)
+//        .subscribe(onNext: { element in
+//            print("element: \(element)")
+//        }, onCompleted: {
+//            print("Completed")
+//        })
+//        .disposed(by: disposeBag)
+//
+//    strikes.onNext("X")
+//    strikes.onNext("Y")
+//    strikes.onNext("Z")
+//    strikes.onNext("O")
+//    strikes.onNext("A")
+//    strikes.onNext("C")
+//    strikes.onNext("D")
+//    strikes.onCompleted()
+//}
+//example(of: "skip") {
+//    let disposeBag = DisposeBag()
+//    // 1
+//    Observable.of("A", "B", "C", "D", "E", "F")
+//    // 2
+//        .skip(3)
+//        .subscribe(onNext: {
+//            print($0) })
+//        .disposed(by: disposeBag)
+//}
+//example(of: "skipWhile") {
+//    let disposeBag = DisposeBag()
+//    // 1
+//    Observable.of(2, 2, 4, 5, 4, 3, 1, 2)
+//    // 2
+//        .skipWhile { $0.isMultiple(of: 2) }
+//        .subscribe(onNext: {
+//            print($0) })
+//        .disposed(by: disposeBag)
+//}
+//example(of: "skipUntil") {
+//    let disposeBag = DisposeBag()
+//    // 1
+//    let subject = PublishSubject<String>()
+//    let trigger = PublishSubject<String>()
+//    // 2
+//    subject
+//        .skipUntil(trigger)
+//        .subscribe(onNext: {
+//            print($0) })
+//        .disposed(by: disposeBag)
+//
+//    subject.onNext("A")
+//    subject.onNext("C")
+//    subject.onNext("D")
+//    subject.onNext("W")
+//
+//    trigger.onNext("Break")
+//
+//    subject.onNext("S")
+//    subject.onNext("G")
+//    subject.onNext("Z")
+//    subject.onNext("M")
+//}
+//example(of: "takeUntil") {
+//    let disposeBag = DisposeBag()
+//    // 1
+//    Observable.of(1, 2, 3, 4, 5)
+//    // 2
+//        .takeUntil(.exclusive) { $0.isMultiple(of: 4) }
+//        .subscribe(onNext: {
+//            print($0) })
+//        .disposed(by: disposeBag)
+//}
+//example(of: "takeUntil trigger") {
+//    let disposeBag = DisposeBag()
+//    // 1
+//    let subject = PublishSubject<String>()
+//    let trigger = PublishSubject<String>()
+//    // 2
+//    subject
+//        .takeUntil(trigger)
+//        .subscribe(onNext: {
+//            print($0) })
+//        .disposed(by: disposeBag)
+//    // 3
+//    subject.onNext("1")
+//    subject.onNext("2")
+//    trigger.onNext("X")
+//    subject.onNext("3")
+//}
+example(of: "distinctUntilChanged") {
+    let disposeBag = DisposeBag()
+    // 1
+    Observable.of("A", "A", "B", "B", "A")
+    // 2
+        .distinctUntilChanged()
+        .subscribe(onNext: {
+            print($0) })
+        .disposed(by: disposeBag)
+}
