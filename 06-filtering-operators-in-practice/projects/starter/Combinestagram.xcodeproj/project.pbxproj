@@ -3,10 +3,16 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05E423072A50205D000085CF /* RxCocoa.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05E423012A502051000085CF /* RxCocoa.xcframework */; };
+		05E423082A50205D000085CF /* RxCocoa.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 05E423012A502051000085CF /* RxCocoa.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		05E423092A50205D000085CF /* RxRelay.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05E423032A502054000085CF /* RxRelay.xcframework */; };
+		05E4230A2A50205D000085CF /* RxRelay.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 05E423032A502054000085CF /* RxRelay.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		05E4230B2A50205D000085CF /* RxSwift.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05E423022A502053000085CF /* RxSwift.xcframework */; };
+		05E4230C2A50205D000085CF /* RxSwift.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 05E423022A502053000085CF /* RxSwift.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9C2951971F780F0100FD8830 /* UIViewController+rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2951961F780F0100FD8830 /* UIViewController+rx.swift */; };
 		9CDD7B041DE5AABE0058B2D5 /* UIImage+Collage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDD7B031DE5AABE0058B2D5 /* UIImage+Collage.swift */; };
 		9CDD7B061DE5BC660058B2D5 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDD7B051DE5BC660058B2D5 /* PhotosViewController.swift */; };
@@ -20,7 +26,26 @@
 		9CE7E5F11DE5A94600C8BA5A /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 9CE7E5F01DE5A94600C8BA5A /* Podfile */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		05E4230D2A50205D000085CF /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				05E4230C2A50205D000085CF /* RxSwift.xcframework in Embed Frameworks */,
+				05E423082A50205D000085CF /* RxCocoa.xcframework in Embed Frameworks */,
+				05E4230A2A50205D000085CF /* RxRelay.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		05E423012A502051000085CF /* RxCocoa.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = RxCocoa.xcframework; sourceTree = "<group>"; };
+		05E423022A502053000085CF /* RxSwift.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = RxSwift.xcframework; sourceTree = "<group>"; };
+		05E423032A502054000085CF /* RxRelay.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = RxRelay.xcframework; sourceTree = "<group>"; };
 		9C2951961F780F0100FD8830 /* UIViewController+rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+rx.swift"; sourceTree = "<group>"; };
 		9CDD7B031DE5AABE0058B2D5 /* UIImage+Collage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = "UIImage+Collage.swift"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		9CDD7B051DE5BC660058B2D5 /* PhotosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PhotosViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -41,12 +66,25 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05E4230B2A50205D000085CF /* RxSwift.xcframework in Frameworks */,
+				05E423092A50205D000085CF /* RxRelay.xcframework in Frameworks */,
+				05E423072A50205D000085CF /* RxCocoa.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		05E423002A502034000085CF /* 3rd party framework */ = {
+			isa = PBXGroup;
+			children = (
+				05E423012A502051000085CF /* RxCocoa.xcframework */,
+				05E423032A502054000085CF /* RxRelay.xcframework */,
+				05E423022A502053000085CF /* RxSwift.xcframework */,
+			);
+			name = "3rd party framework";
+			sourceTree = "<group>";
+		};
 		9CDD7B091DE6E37C0058B2D5 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +129,7 @@
 		9CE7E5DB1DE5A40900C8BA5A /* Combinestagram */ = {
 			isa = PBXGroup;
 			children = (
+				05E423002A502034000085CF /* 3rd party framework */,
 				9CDD7B0A1DE6E38E0058B2D5 /* Classes */,
 				9CDD7B091DE6E37C0058B2D5 /* Assets */,
 				9CE7E5DE1DE5A40A00C8BA5A /* MainViewController.swift */,
@@ -118,6 +157,7 @@
 				9CE7E5D51DE5A40900C8BA5A /* Sources */,
 				9CE7E5D61DE5A40900C8BA5A /* Frameworks */,
 				9CE7E5D71DE5A40900C8BA5A /* Resources */,
+				05E4230D2A50205D000085CF /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -321,7 +361,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -333,7 +374,10 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Combinestagram/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.raywenderlich.Combinestagram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -348,7 +392,10 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Combinestagram/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.raywenderlich.Combinestagram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
