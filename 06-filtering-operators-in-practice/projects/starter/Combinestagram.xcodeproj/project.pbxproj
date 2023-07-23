@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		051140382A62D54100A211CC /* PHPhotoLibrary+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051140372A62D54100A211CC /* PHPhotoLibrary+Rx.swift */; };
 		05E423072A50205D000085CF /* RxCocoa.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05E423012A502051000085CF /* RxCocoa.xcframework */; };
 		05E423082A50205D000085CF /* RxCocoa.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 05E423012A502051000085CF /* RxCocoa.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		05E423092A50205D000085CF /* RxRelay.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05E423032A502054000085CF /* RxRelay.xcframework */; };
@@ -43,6 +44,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		051140372A62D54100A211CC /* PHPhotoLibrary+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PHPhotoLibrary+Rx.swift"; sourceTree = "<group>"; };
 		05E423012A502051000085CF /* RxCocoa.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = RxCocoa.xcframework; sourceTree = "<group>"; };
 		05E423022A502053000085CF /* RxSwift.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = RxSwift.xcframework; sourceTree = "<group>"; };
 		05E423032A502054000085CF /* RxRelay.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = RxRelay.xcframework; sourceTree = "<group>"; };
@@ -112,7 +114,6 @@
 				9CE7E5F01DE5A94600C8BA5A /* Podfile */,
 				9CE7E5DB1DE5A40900C8BA5A /* Combinestagram */,
 				9CE7E5DA1DE5A40900C8BA5A /* Products */,
-				BE1263968E13B8E2459A1A17 /* Pods */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -133,18 +134,12 @@
 				9CDD7B0A1DE6E38E0058B2D5 /* Classes */,
 				9CDD7B091DE6E37C0058B2D5 /* Assets */,
 				9CE7E5DE1DE5A40A00C8BA5A /* MainViewController.swift */,
+				051140372A62D54100A211CC /* PHPhotoLibrary+Rx.swift */,
 				9CDD7B051DE5BC660058B2D5 /* PhotosViewController.swift */,
 				9CDD7B071DE6D7ED0058B2D5 /* PhotoCell.swift */,
 				9C2951961F780F0100FD8830 /* UIViewController+rx.swift */,
 			);
 			path = Combinestagram;
-			sourceTree = "<group>";
-		};
-		BE1263968E13B8E2459A1A17 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,6 +224,7 @@
 				9CDD7B061DE5BC660058B2D5 /* PhotosViewController.swift in Sources */,
 				9CDD7B0C1DE6E3D30058B2D5 /* PhotoWriter.swift in Sources */,
 				9CE7E5DF1DE5A40A00C8BA5A /* MainViewController.swift in Sources */,
+				051140382A62D54100A211CC /* PHPhotoLibrary+Rx.swift in Sources */,
 				9CE7E5DD1DE5A40A00C8BA5A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
