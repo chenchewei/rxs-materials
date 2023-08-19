@@ -119,16 +119,21 @@ import RxSwift
 //    subject.onNext("Z")
 //    subject.onNext("M")
 //}
-//example(of: "takeUntil") {
-//    let disposeBag = DisposeBag()
-//    // 1
-//    Observable.of(1, 2, 3, 4, 5)
-//    // 2
+example(of: "takeUntil") {
+    let disposeBag = DisposeBag()
+    // 1
+    Observable.of(1, 2, 3, 4, 5)
+    // 2
 //        .takeUntil(.exclusive) { $0.isMultiple(of: 4) }
-//        .subscribe(onNext: {
-//            print($0) })
-//        .disposed(by: disposeBag)
-//}
+        .take(5)
+        .subscribe(onNext: {
+            print($0) }, onCompleted: {
+                print("Completed")
+            }, onDisposed: {
+                print("Disposed")
+            })
+        .disposed(by: disposeBag)
+}
 //example(of: "takeUntil trigger") {
 //    let disposeBag = DisposeBag()
 //    // 1
@@ -146,13 +151,13 @@ import RxSwift
 //    trigger.onNext("X")
 //    subject.onNext("3")
 //}
-example(of: "distinctUntilChanged") {
-    let disposeBag = DisposeBag()
-    // 1
-    Observable.of("A", "A", "B", "B", "A")
-    // 2
-        .distinctUntilChanged()
-        .subscribe(onNext: {
-            print($0) })
-        .disposed(by: disposeBag)
-}
+//example(of: "distinctUntilChanged") {
+//    let disposeBag = DisposeBag()
+//    // 1
+//    Observable.of("A", "A", "B", "B", "A")
+//    // 2
+//        .distinctUntilChanged()
+//        .subscribe(onNext: {
+//            print($0) })
+//        .disposed(by: disposeBag)
+//}

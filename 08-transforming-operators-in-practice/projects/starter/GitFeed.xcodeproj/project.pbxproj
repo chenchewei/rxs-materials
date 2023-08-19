@@ -3,10 +3,18 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05659A062A90AE8800E38FE2 /* Kingfisher.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05659A042A90AE7600E38FE2 /* Kingfisher.xcframework */; };
+		05659A072A90AE8800E38FE2 /* Kingfisher.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 05659A042A90AE7600E38FE2 /* Kingfisher.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		05659A082A90AE8800E38FE2 /* RxCocoa.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 056599FF2A90ACDB00E38FE2 /* RxCocoa.xcframework */; };
+		05659A092A90AE8800E38FE2 /* RxCocoa.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 056599FF2A90ACDB00E38FE2 /* RxCocoa.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		05659A0A2A90AE8800E38FE2 /* RxRelay.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05659A002A90ACDB00E38FE2 /* RxRelay.xcframework */; };
+		05659A0B2A90AE8800E38FE2 /* RxRelay.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 05659A002A90ACDB00E38FE2 /* RxRelay.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		05659A0C2A90AE8800E38FE2 /* RxSwift.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 056599FE2A90ACDB00E38FE2 /* RxSwift.xcframework */; };
+		05659A0D2A90AE8800E38FE2 /* RxSwift.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 056599FE2A90ACDB00E38FE2 /* RxSwift.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9C8332751DF73BA90067DC80 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8332741DF73BA90067DC80 /* AppDelegate.swift */; };
 		9C8332771DF73BA90067DC80 /* ActivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8332761DF73BA90067DC80 /* ActivityController.swift */; };
 		9C83327A1DF73BA90067DC80 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C8332781DF73BA90067DC80 /* Main.storyboard */; };
@@ -16,7 +24,28 @@
 		9CE37EC71DF73EE300E4E310 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE37EC61DF73EE300E4E310 /* Event.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		05659A0E2A90AE8800E38FE2 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				05659A0B2A90AE8800E38FE2 /* RxRelay.xcframework in Embed Frameworks */,
+				05659A0D2A90AE8800E38FE2 /* RxSwift.xcframework in Embed Frameworks */,
+				05659A072A90AE8800E38FE2 /* Kingfisher.xcframework in Embed Frameworks */,
+				05659A092A90AE8800E38FE2 /* RxCocoa.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		056599FE2A90ACDB00E38FE2 /* RxSwift.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = RxSwift.xcframework; sourceTree = "<group>"; };
+		056599FF2A90ACDB00E38FE2 /* RxCocoa.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = RxCocoa.xcframework; sourceTree = "<group>"; };
+		05659A002A90ACDB00E38FE2 /* RxRelay.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = RxRelay.xcframework; sourceTree = "<group>"; };
+		05659A042A90AE7600E38FE2 /* Kingfisher.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = Kingfisher.xcframework; sourceTree = "<group>"; };
 		9C8332711DF73BA90067DC80 /* GitFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C8332741DF73BA90067DC80 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9C8332761DF73BA90067DC80 /* ActivityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityController.swift; sourceTree = "<group>"; };
@@ -33,12 +62,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05659A082A90AE8800E38FE2 /* RxCocoa.xcframework in Frameworks */,
+				05659A0C2A90AE8800E38FE2 /* RxSwift.xcframework in Frameworks */,
+				05659A0A2A90AE8800E38FE2 /* RxRelay.xcframework in Frameworks */,
+				05659A062A90AE8800E38FE2 /* Kingfisher.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		056599FD2A90ACDB00E38FE2 /* ##RxSwift */ = {
+			isa = PBXGroup;
+			children = (
+				056599FE2A90ACDB00E38FE2 /* RxSwift.xcframework */,
+				056599FF2A90ACDB00E38FE2 /* RxCocoa.xcframework */,
+				05659A002A90ACDB00E38FE2 /* RxRelay.xcframework */,
+			);
+			path = "##RxSwift";
+			sourceTree = "<group>";
+		};
 		9C30C3F71E06FC3900C6C510 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
@@ -56,7 +99,6 @@
 				9C8332861DF73BBD0067DC80 /* Podfile */,
 				9C8332731DF73BA90067DC80 /* GitFeed */,
 				9C8332721DF73BA90067DC80 /* Products */,
-				F5C394BA50904BF5732EF8A1 /* Pods */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -73,19 +115,14 @@
 		9C8332731DF73BA90067DC80 /* GitFeed */ = {
 			isa = PBXGroup;
 			children = (
+				05659A042A90AE7600E38FE2 /* Kingfisher.xcframework */,
+				056599FD2A90ACDB00E38FE2 /* ##RxSwift */,
 				9C30C3F71E06FC3900C6C510 /* Assets */,
 				9C8332761DF73BA90067DC80 /* ActivityController.swift */,
 				9CE37EC61DF73EE300E4E310 /* Event.swift */,
 				9C8332741DF73BA90067DC80 /* AppDelegate.swift */,
 			);
 			path = GitFeed;
-			sourceTree = "<group>";
-		};
-		F5C394BA50904BF5732EF8A1 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -98,6 +135,7 @@
 				9C83326D1DF73BA90067DC80 /* Sources */,
 				9C83326E1DF73BA90067DC80 /* Frameworks */,
 				9C83326F1DF73BA90067DC80 /* Resources */,
+				05659A0E2A90AE8800E38FE2 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -296,7 +334,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -305,11 +344,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 36B5FN7KNK;
 				INFOPLIST_FILE = GitFeed/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.raywenderlich.GitFeed;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.raywenderlich.GitFeed2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -319,11 +361,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 36B5FN7KNK;
 				INFOPLIST_FILE = GitFeed/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.raywenderlich.GitFeed;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.raywenderlich.GitFeed2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};

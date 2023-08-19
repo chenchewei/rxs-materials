@@ -74,7 +74,6 @@ class MainViewController: UIViewController {
   @IBAction func actionClear() {
     images.accept([])
     imageCache = []
-    navigationItem.leftBarButtonItem = nil
   }
 
   @IBAction func actionSave() {

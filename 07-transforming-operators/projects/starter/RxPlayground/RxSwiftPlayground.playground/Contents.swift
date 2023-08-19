@@ -34,3 +34,84 @@ import RxSwift
 /// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
+struct Student {
+    let score: BehaviorSubject<Int>
+}
+
+//example(of: "flatMap") {
+//    let disposeBag = DisposeBag()
+//    
+//    let laura = Student(score: BehaviorSubject(value: 80))
+//    let charlotte = Student(score: BehaviorSubject(value: 90))
+//    let student = PublishSubject<Student>()
+//    student
+//        .flatMap {
+//            $0.score
+//        }
+//        .subscribe(onNext: { print($0) })
+//        .disposed(by: disposeBag)
+//
+//    student.onNext(laura)
+//    laura.score.onNext(85)
+//    student.onNext(charlotte)
+//    laura.score.onNext(95)
+//    charlotte.score.onNext(100)
+//}
+
+//example(of: "flatMapLatest") {
+//    let disposeBag = DisposeBag()
+//    let laura = Student(score: BehaviorSubject(value: 80))
+//    let charlotte = Student(score: BehaviorSubject(value: 90))
+//    let student = PublishSubject<Student>()
+//    student
+//        .flatMapLatest {
+//            $0.score }
+//        .subscribe(onNext: {
+//            print($0)
+//        })
+//        .disposed(by: disposeBag)
+//    student.onNext(laura)
+//    laura.score.onNext(85)
+//    student.onNext(charlotte)
+//    // 1
+//    laura.score.onNext(95)
+//    charlotte.score.onNext(100)
+//}
+
+example(of: "materialize and dematerialize") {
+    // 1
+    enum MyError: Error {
+        case anError
+    }
+    let disposeBag = DisposeBag()
+    // 2
+    let laura = Student(score: BehaviorSubject(value: 80))
+    let charlotte = Student(score: BehaviorSubject(value: 100))
+    let student = BehaviorSubject(value: laura)
+    // 1
+    let studentScore = student
+        .flatMapLatest {
+            $0.score.materialize() }
+    
+    studentScore
+    // 1
+        .filter {
+            guard $0.error == nil else {
+                print($0.error!)
+                return false
+            }
+            return true
+        }
+    // 2
+        .dematerialize()
+        .subscribe(onNext: {
+            print($0) })
+        .disposed(by: disposeBag)
+    
+    // 3
+    laura.score.onNext(85)
+    laura.score.onError(MyError.anError)
+    laura.score.onNext(90)
+    // 4
+    student.onNext(charlotte)
+}
